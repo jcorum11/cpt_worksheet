@@ -1,32 +1,14 @@
-import { NavigationContainer } from '@react-navigation/native';
-import React, { type PropsWithChildren } from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import Section from './components/Section';
+import React from 'react';
+import {Provider} from 'react-redux';
+import {Navigation} from './components/utils/Navigation';
+import {store} from './libs/store/store';
 
 const App = () => {
   return (
+    <Provider store={store}>
+      <Navigation />
+    </Provider>
   );
 };
-
-const styles = StyleSheet.create({
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
