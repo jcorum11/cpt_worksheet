@@ -1,6 +1,6 @@
 import {SafeAreaView, ScrollView, Text, TextInput} from 'react-native';
-import {ConsequencesProps} from '../../types/navigation';
-import {Button} from '../../components/utils/Button';
+import {ConsequencesProps} from '../../libs/utils/types/navigation';
+import {Button} from '../../components/Button';
 
 export const Consequences = ({route, navigation}: ConsequencesProps) => {
   return (

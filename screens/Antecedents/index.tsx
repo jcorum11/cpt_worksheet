@@ -6,7 +6,7 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import {AntecedentsProps} from '../../types/navigation';
+import {AntecedentsProps} from '../../libs/utils/types/navigation';
 
 export const Antecendents = ({route, navigation}: AntecedentsProps) => {
   return (

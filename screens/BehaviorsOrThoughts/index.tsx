@@ -1,6 +1,6 @@
 import {SafeAreaView, ScrollView, Text, TextInput, View} from 'react-native';
-import {BehaviorsOrThoughtsProps} from '../../types/navigation';
-import {Button} from '../../components/utils/Button';
+import {BehaviorsOrThoughtsProps} from '../../libs/utils/types/navigation';
+import {Button} from '../../components/Button';
 
 export const BehaviorsOrThoughts = ({
   route,

@@ -1,6 +1,6 @@
 import {SafeAreaView, ScrollView, Text, TextInput} from 'react-native';
-import {ReflectionsProps} from '../../types/navigation';
-import {Button} from '../../components/utils/Button';
+import {ReflectionsProps} from '../../libs/utils/types/navigation';
+import {Button} from '../../components/Button';
 
 export const Reflections = ({route, navigation}: ReflectionsProps) => {
   return (

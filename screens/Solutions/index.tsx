@@ -1,6 +1,6 @@
 import {SafeAreaView, ScrollView, TextInput} from 'react-native';
-import {SolutionsProps} from '../../types/navigation';
-import {Button} from '../../components/utils/Button';
+import {SolutionsProps} from '../../libs/utils/types/navigation';
+import {Button} from '../../components/Button';
 
 export const Solutions = ({route, navigation}: SolutionsProps) => {
   return (
