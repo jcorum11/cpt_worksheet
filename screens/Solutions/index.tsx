@@ -1,13 +1,14 @@
-import {SafeAreaView, ScrollView, TextInput} from 'react-native';
+import {SafeAreaView, ScrollView} from 'react-native';
 import {SolutionsProps} from '../../libs/utils/types/navigation';
-import {Button} from '../../components/Button';
+import {Btn} from '../../components/Button';
+import {TextInBlueBorder} from '../../components/TextInBlueBorder';
 
 export const Solutions = ({route, navigation}: SolutionsProps) => {
   return (
     <SafeAreaView>
       <ScrollView>
-        <TextInput />
-        <Button title="Next" navigation={navigation} location="Situation" />
+        <TextInBlueBorder />
+        <Btn title="Next" navigation={navigation} location="Situation" />
       </ScrollView>
     </SafeAreaView>
   );

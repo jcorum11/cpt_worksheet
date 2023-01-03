@@ -11,7 +11,8 @@ import {saveSituationAnswer} from '../mediumLogSlice';
 import {useState} from 'react';
 import {result, setField} from '../../libs/utils/situation-service';
 import {SituationProps} from '../../libs/utils/types/navigation';
-import {Button} from '../../components/Button';
+import {Btn} from '../../components/Button';
+import {TextInBlueBorder} from '../../components/TextInBlueBorder';
 
 export const Situation = ({route, navigation}: SituationProps) => {
   const dispatch = useAppDispatch();
@@ -32,38 +33,36 @@ export const Situation = ({route, navigation}: SituationProps) => {
           </View>
           <View>
             <Text>Who were/are you with?</Text>
-            <TextInput />
-            {/* onChangeText={text => setField('who', text, setWho)}></TextInput> */}
+            <TextInBlueBorder
+              onChangeText={text => setField('who', text, setWho)}
+            />
           </View>
           <View>
             <Text>What were/are you doing?</Text>
-            <TextInput />
-            {/* onChangeText={text => */}
-            {/* setField('what', text, setWhat) */}
-            {/* }></TextInput> */}
+            <TextInBlueBorder
+              onChangeText={text => setField('what', text, setWhat)}
+            />
           </View>
           <View>
             <Text>Where were/are you?</Text>
-            <TextInput />
-            {/* onChangeText={text => */}
-            {/* setField('where', text, setWhere) */}
-            {/* }></TextInput> */}
+            <TextInBlueBorder
+              onChangeText={text => setField('where', text, setWhere)}
+            />
           </View>
           <View>
             <Text>When did this happen?</Text>
-            <TextInput />
-            {/* onChangeText={text => */}
-            {/* setField('when', text, setWhen) */}
-            {/* }></TextInput> */}
+            <TextInBlueBorder
+              onChangeText={text => setField('when', text, setWhen)}
+            />
           </View>
         </View>
         <View>
-          {/* <Button */}
-          {/*   title="Next" */}
-          {/*   navigation={navigation} */}
-          {/*   location="UnhealthyThoughts" */}
-          {/*   onPress={() => dispatch(saveSituationAnswer(result))} */}
-          {/* /> */}
+          <Btn
+            title="Next"
+            navigation={navigation}
+            location="UnhealthyThoughts"
+            onPress={() => dispatch(saveSituationAnswer(result))}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>

@@ -1,6 +1,7 @@
-import {SafeAreaView, ScrollView, Text, TextInput} from 'react-native';
+import {SafeAreaView, ScrollView, Text} from 'react-native';
 import {ConsequencesProps} from '../../libs/utils/types/navigation';
-import {Button} from '../../components/Button';
+import {Btn} from '../../components/Button';
+import {TextInBlueBorder} from '../../components/TextInBlueBorder';
 
 export const Consequences = ({route, navigation}: ConsequencesProps) => {
   return (
@@ -11,10 +12,10 @@ export const Consequences = ({route, navigation}: ConsequencesProps) => {
           way?
         </Text>
         <Text>Intended</Text>
-        <TextInput />
+        <TextInBlueBorder />
         <Text>Unintended</Text>
-        <TextInput />
-        <Button title="Next" navigation={navigation} location="Logical" />
+        <TextInBlueBorder />
+        <Btn title="Next" navigation={navigation} location="Logical" />
       </ScrollView>
     </SafeAreaView>
   );

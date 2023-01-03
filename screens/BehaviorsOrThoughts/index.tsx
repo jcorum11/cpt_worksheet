@@ -1,6 +1,7 @@
-import {SafeAreaView, ScrollView, Text, TextInput, View} from 'react-native';
+import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 import {BehaviorsOrThoughtsProps} from '../../libs/utils/types/navigation';
-import {Button} from '../../components/Button';
+import {Btn} from '../../components/Button';
+import {TextInBlueBorder} from '../../components/TextInBlueBorder';
 
 export const BehaviorsOrThoughts = ({
   route,
@@ -14,13 +15,13 @@ export const BehaviorsOrThoughts = ({
             A. What did you do or doing? Behaviors can be observable to other
             people, or can be the things we do or say to ourselves in our minds.
           </Text>
-          <TextInput />
+          <TextInBlueBorder />
           <Text>
-            B. What did you teill (or currently telling) yourself? What
-            Unhelpful thinking style did you use?
+            B. What did you tell (or currently telling) yourself? What Unhelpful
+            thinking style did you use?
           </Text>
-          <TextInput />
-          <Button title="Next" navigation={navigation} location="Feelings" />
+          <TextInBlueBorder />
+          <Btn title="Next" navigation={navigation} location="Feelings" />
         </View>
       </ScrollView>
     </SafeAreaView>

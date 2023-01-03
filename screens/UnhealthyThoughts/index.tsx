@@ -1,6 +1,7 @@
-import {SafeAreaView, ScrollView, Text, TextInput, View} from 'react-native';
+import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 import {UnhealthyThoughtsProps} from '../../libs/utils/types/navigation';
-import {Button} from '../../components/Button';
+import {Btn} from '../../components/Button';
+import {TextInBlueBorder} from '../../components/TextInBlueBorder';
 
 export const UnhealthyThoughts = ({
   route,
@@ -11,8 +12,8 @@ export const UnhealthyThoughts = ({
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <View>
           <Text>Unhealthy thoughts</Text>
-          <TextInput />
-          <Button title="Next" navigation={navigation} location="Antecedents" />
+          <TextInBlueBorder />
+          <Btn title="Next" navigation={navigation} location="Antecedents" />
         </View>
       </ScrollView>
     </SafeAreaView>

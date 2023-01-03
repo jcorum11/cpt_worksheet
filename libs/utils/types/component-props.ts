@@ -11,3 +11,7 @@ export type ButtonProps = {
   title: string;
   onPress?: () => void;
 };
+
+export type TextInputProps = {
+  onChangeText?: (text: string) => void;
+};
