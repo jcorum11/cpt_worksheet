@@ -1,7 +1,7 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {Navigation} from './components/Navigation';
-import {store} from './libs/store/store';
+import {Navigation} from './src/components/Navigation';
+import {store} from './src/libs/store/store';
 
 const App = () => {
   return (

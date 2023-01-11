@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "407386628937",
+    "firebase_url": "https://cpt-worksheet-default-rtdb.firebaseio.com",
+    "project_id": "cpt-worksheet",
+    "storage_bucket": "cpt-worksheet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:407386628937:android:457c3f85119d705c0b3098",
+        "android_client_info": {
+          "package_name": "com.cpt_worksheet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "407386628937-1n858l9c7gob0235hi9o8alaa7mfkk05.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXP-CQywnEToo4fMmggN7sksYngcAuerw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "407386628937-1n858l9c7gob0235hi9o8alaa7mfkk05.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
