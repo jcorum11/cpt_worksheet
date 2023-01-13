@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>407386628937-skj759mudcq9j9gecj0conpr7io2qd1q.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.407386628937-skj759mudcq9j9gecj0conpr7io2qd1q</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBGmcpZdsyRZu4LC9liamAzoFMHUIIod4M</string>
+	<key>GCM_SENDER_ID</key>
+	<string>407386628937</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.cpt-worksheet</string>
+	<key>PROJECT_ID</key>
+	<string>cpt-worksheet</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cpt-worksheet.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:407386628937:ios:c2b4dcdb4e2d29e70b3098</string>
+	<key>DATABASE_URL</key>
+	<string>https://cpt-worksheet-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

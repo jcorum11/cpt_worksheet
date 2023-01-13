@@ -1,3 +1,4 @@
+import React from 'react';
 import { SafeAreaView, ScrollView, StatusBar, Text, View } from 'react-native';
 import { useState } from 'react';
 import { setField } from 'libs/utils/services/situation-service';
@@ -6,6 +7,7 @@ import { Btn } from 'components/Button';
 import { TextInBlueBorder } from 'components/TextInBlueBorder';
 import { useAppSelector } from 'libs/store/hooks';
 import { selectSituation } from 'libs/store/medium-log-slice';
+import database from '@react-native-firebase/database';
 
 export const Situation = ({ route, navigation }: SituationProps) => {
   const [, setWho] = useState('');
@@ -13,6 +15,10 @@ export const Situation = ({ route, navigation }: SituationProps) => {
   const [, setWhere] = useState('');
   const [, setWhen] = useState('');
   const [who, what, where, when] = useAppSelector(selectSituation);
+  const post = () => {
+    const reference = database().ref('/users').push();
+    reference.set({ age: 32 }).then(() => console.log('Data set.'));
+  };
   return (
     <SafeAreaView>
       <StatusBar />
@@ -54,6 +60,7 @@ export const Situation = ({ route, navigation }: SituationProps) => {
             title="Next"
             navigation={navigation}
             location="UnhealthyThoughts"
+            onPress={() => post()}
           />
         </View>
       </ScrollView>

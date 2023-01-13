@@ -1,3 +1,4 @@
+import React, {useEffect, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../libs/utils/types/navigation';
@@ -10,25 +11,56 @@ import {Reflections} from '../../screens/Reflections';
 import {Situation} from '../../screens/Situation';
 import {Solutions} from '../../screens/Solutions';
 import {UnhealthyThoughts} from '../../screens/UnhealthyThoughts';
+import {FirebaseAuthTypes} from '@react-native-firebase/auth';
+import auth from '@react-native-firebase/auth';
+import {Auth} from 'screens/Auth';
+import {SignIn} from 'screens/SignIn';
+import {SignUp} from 'screens/SignUp';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const Navigation = () => {
+  // Set an initializing state whilst Firebase connects
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null);
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(userState => {
+      setUser(userState);
+      if (initializing) setInitializing(false);
+    });
+    return subscriber; // unsubscribe on unmount
+  }, []);
+
+  if (initializing) return null;
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Situation">
-        <Stack.Screen name="Situation" component={Situation} />
-        <Stack.Screen name="UnhealthyThoughts" component={UnhealthyThoughts} />
-        <Stack.Screen name="Antecedents" component={Antecendents} />
-        <Stack.Screen
-          name="BehaviorsOrThoughts"
-          component={BehaviorsOrThoughts}
-        />
-        <Stack.Screen name="Feelings" component={Feelings} />
-        <Stack.Screen name="Consequences" component={Consequences} />
-        <Stack.Screen name="Logical" component={Logical} />
-        <Stack.Screen name="Reflections" component={Reflections} />
-        <Stack.Screen name="Solutions" component={Solutions} />
+        {user ? (
+          <>
+            <Stack.Screen name="Situation" component={Situation} />
+            <Stack.Screen
+              name="UnhealthyThoughts"
+              component={UnhealthyThoughts}
+            />
+            <Stack.Screen name="Antecedents" component={Antecendents} />
+            <Stack.Screen
+              name="BehaviorsOrThoughts"
+              component={BehaviorsOrThoughts}
+            />
+            <Stack.Screen name="Feelings" component={Feelings} />
+            <Stack.Screen name="Consequences" component={Consequences} />
+            <Stack.Screen name="Logical" component={Logical} />
+            <Stack.Screen name="Reflections" component={Reflections} />
+            <Stack.Screen name="Solutions" component={Solutions} />
+          </>
+        ) : (
+          <>
+            <Stack.Screen name="SignIn" component={SignIn} />
+            <Stack.Screen name="SignUp" component={SignUp} />
+          </>
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );

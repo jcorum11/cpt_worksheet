@@ -1,6 +1,7 @@
 import {Dispatch, SetStateAction} from 'react';
 import {saveSituationAnswer} from 'libs/store/medium-log-slice';
 import store from '../../store/store';
+import database from '@react-native-firebase/database';
 
 export const setField = (
   type: string,
@@ -27,4 +28,9 @@ export const setField = (
     default:
       break;
   }
+};
+
+export const post = () => {
+  const reference = database().ref('users').push();
+  reference.set({age: 32}).then(() => console.log('Data updated.'));
 };

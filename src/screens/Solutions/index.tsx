@@ -1,3 +1,4 @@
+import React from 'react';
 import {SafeAreaView, ScrollView} from 'react-native';
 import {SolutionsProps} from '../../libs/utils/types/navigation';
 import {Btn} from '../../components/Button';

@@ -1,9 +1,11 @@
 import {configureStore} from '@reduxjs/toolkit';
 import mediumLogReducer from 'libs/store/medium-log-slice';
+import userReducer from 'libs/store/user-slice';
 
 export const store = configureStore({
   reducer: {
     mediumLog: mediumLogReducer,
+    user: userReducer,
   },
 });
 
