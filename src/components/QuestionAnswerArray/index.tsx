@@ -1,13 +1,17 @@
 import {QuestionAnswerArrayProps} from 'libs/utils/types/component-props';
 import React from 'react';
-import {Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
-export const QuestionAnswerArray = ({data}: QuestionAnswerArrayProps) => {
+export const QuestionAnswerArray = ({
+  data,
+  category,
+}: QuestionAnswerArrayProps) => {
   return (
     <>
-      {data.map(({question, answer}) => {
+      <Text style={styles.category}>{category}</Text>
+      {data.map(({question, answer}, i) => {
         return (
-          <View>
+          <View key={question + i}>
             <Text>{question}</Text>
             <Text>{answer}</Text>
           </View>
@@ -16,3 +20,9 @@ export const QuestionAnswerArray = ({data}: QuestionAnswerArrayProps) => {
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  category: {
+    backgroundColor: 'yellow',
+  },
+});

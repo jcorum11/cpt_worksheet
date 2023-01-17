@@ -21,7 +21,6 @@ export const setField = (
 export const post = () => {
   const uid = store.getState().user.uid;
   const log = store.getState().mediumLog.current;
-  console.log(uid);
   if (uid !== undefined) {
     api.mediumLog.post(log, uid);
   }

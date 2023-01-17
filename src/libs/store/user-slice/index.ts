@@ -48,7 +48,7 @@ export const userSlice = createSlice({
 export const {setUid, setPassword} = userSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectUserInfo = (state: RootState) => state.user.uid;
+export const selectUid = (state: RootState) => state.user.uid;
 export const selectPassword = (state: RootState) => state.user.password;
 
 export default userSlice.reducer;

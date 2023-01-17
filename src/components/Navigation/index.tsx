@@ -15,10 +15,11 @@ import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import auth from '@react-native-firebase/auth';
 import {SignIn} from 'screens/SignIn';
 import {SignUp} from 'screens/SignUp';
-import {useAppDispatch, useAppSelector} from 'libs/store/hooks';
+import {useAppDispatch} from 'libs/store/hooks';
 import {setUid} from 'libs/store/user-slice';
-import {fetchLegacyLog, selectLegacyLogs} from 'libs/store/medium-log-slice';
+import {fetchLegacyLog} from 'libs/store/medium-log-slice';
 import {Logs} from 'screens/Logs';
+import {Btn} from 'components/Button';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -33,12 +34,13 @@ export const Navigation = () => {
       setUser(userState);
       if (userState?.uid !== undefined) {
         dispatch(setUid(userState.uid));
-        dispatch(fetchLegacyLog(userState.uid));
       }
-      if (initializing) setInitializing(false);
+      if (initializing) {
+        setInitializing(false);
+      }
     });
     return subscriber; // unsubscribe on unmount
-  }, []);
+  }, [dispatch, initializing]);
 
   if (initializing) return null;
 
@@ -47,7 +49,19 @@ export const Navigation = () => {
       <Stack.Navigator>
         {user ? (
           <>
-            <Stack.Screen name="Logs" component={Logs} />
+            <Stack.Screen
+              name="Logs"
+              component={Logs}
+              options={({navigation}) => ({
+                headerLeft: () => (
+                  <Btn
+                    title="Add"
+                    navigation={navigation}
+                    location="Situation"
+                  />
+                ),
+              })}
+            />
             <Stack.Screen name="Situation" component={Situation} />
             <Stack.Screen
               name="UnhealthyThoughts"

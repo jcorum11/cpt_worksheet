@@ -18,7 +18,7 @@ export const Solutions = ({route, navigation}: SolutionsProps) => {
         <Btn
           title="Submit"
           navigation={navigation}
-          location="Situation"
+          location="Logs"
           onPress={() => post()}
         />
       </ScrollView>

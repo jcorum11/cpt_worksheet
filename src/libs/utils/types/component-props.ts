@@ -1,4 +1,5 @@
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {QuestionAnswer} from './answers';
 import {RootStackParamList} from './navigation';
 import {MediumLogState} from './slice-state';
 
@@ -19,13 +20,16 @@ export type TextInputProps = {
 
 export type LogProps = {
   log: MediumLogState;
+  date: string;
 };
 
 export type QuestionAnswerProps = {
+  category: string;
   question: string;
   answer: string;
 };
 
 export type QuestionAnswerArrayProps = {
-  data: any[];
+  category: string;
+  data: QuestionAnswer[];
 };
