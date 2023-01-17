@@ -13,13 +13,17 @@ import {Solutions} from '../../screens/Solutions';
 import {UnhealthyThoughts} from '../../screens/UnhealthyThoughts';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import auth from '@react-native-firebase/auth';
-import {Auth} from 'screens/Auth';
 import {SignIn} from 'screens/SignIn';
 import {SignUp} from 'screens/SignUp';
+import {useAppDispatch, useAppSelector} from 'libs/store/hooks';
+import {setUid} from 'libs/store/user-slice';
+import {fetchLegacyLog, selectLegacyLogs} from 'libs/store/medium-log-slice';
+import {Logs} from 'screens/Logs';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const Navigation = () => {
+  const dispatch = useAppDispatch();
   // Set an initializing state whilst Firebase connects
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null);
@@ -27,6 +31,10 @@ export const Navigation = () => {
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(userState => {
       setUser(userState);
+      if (userState?.uid !== undefined) {
+        dispatch(setUid(userState.uid));
+        dispatch(fetchLegacyLog(userState.uid));
+      }
       if (initializing) setInitializing(false);
     });
     return subscriber; // unsubscribe on unmount
@@ -36,9 +44,10 @@ export const Navigation = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Situation">
+      <Stack.Navigator>
         {user ? (
           <>
+            <Stack.Screen name="Logs" component={Logs} />
             <Stack.Screen name="Situation" component={Situation} />
             <Stack.Screen
               name="UnhealthyThoughts"

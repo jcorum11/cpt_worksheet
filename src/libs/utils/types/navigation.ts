@@ -12,6 +12,7 @@ export type RootStackParamList = {
   Solutions: undefined;
   SignIn: undefined;
   SignUp: undefined;
+  Logs: undefined;
 };
 
 export type UnhealthyThoughtsProps = NativeStackScreenProps<
@@ -54,3 +55,5 @@ export type SolutionsProps = NativeStackScreenProps<
 export type SignInProps = NativeStackScreenProps<RootStackParamList, 'SignIn'>;
 
 export type SignUpProps = NativeStackScreenProps<RootStackParamList, 'SignUp'>;
+
+export type LogsProps = NativeStackScreenProps<RootStackParamList, 'Logs'>;

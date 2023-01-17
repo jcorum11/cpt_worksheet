@@ -29,8 +29,3 @@ export const setField = (
       break;
   }
 };
-
-export const post = () => {
-  const reference = database().ref('users').push();
-  reference.set({age: 32}).then(() => console.log('Data updated.'));
-};

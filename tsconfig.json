@@ -10,7 +10,8 @@
   "paths": {
     "components/*": "./src/components/*",
     "screens/*": "./src/screens/*",
-    "libs/*": "./src/libs/*"
+    "libs/*": "./src/libs/*",
+    "api/*": "./src/api/*"
   },
   "include": [
     "src"

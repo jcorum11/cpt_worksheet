@@ -1,4 +1,3 @@
-import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {QuestionAnswer} from './answers';
 
 // Define a type for the slice state
@@ -14,7 +13,12 @@ export type MediumLogState = {
   unhealthyThoughts: {question: string; answer: string};
 };
 
+export type Logs = {
+  current: MediumLogState;
+  legacy: MediumLogState[];
+};
+
 export type UserState = {
-  userInfo: FirebaseAuthTypes.UserCredential | undefined;
+  uid: string | undefined;
   password: string;
 };

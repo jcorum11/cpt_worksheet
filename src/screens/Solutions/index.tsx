@@ -5,6 +5,7 @@ import {Btn} from '../../components/Button';
 import {TextInBlueBorder} from '../../components/TextInBlueBorder';
 import {useState} from 'react';
 import {setField} from 'libs/utils/services/solutions-service';
+import {post} from 'libs/utils/services/solutions-service';
 
 export const Solutions = ({route, navigation}: SolutionsProps) => {
   const [, setSolutions] = useState('');
@@ -14,7 +15,12 @@ export const Solutions = ({route, navigation}: SolutionsProps) => {
         <TextInBlueBorder
           onChangeText={text => setField('solutions', text, setSolutions)}
         />
-        <Btn title="Next" navigation={navigation} location="Situation" />
+        <Btn
+          title="Submit"
+          navigation={navigation}
+          location="Situation"
+          onPress={() => post()}
+        />
       </ScrollView>
     </SafeAreaView>
   );

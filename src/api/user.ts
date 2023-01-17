@@ -1,6 +1,6 @@
 import auth from '@react-native-firebase/auth';
 
-export const postUser = async (email: string, password: string) => {
+export const post = async (email: string, password: string) => {
   try {
     return auth().createUserWithEmailAndPassword(email, password);
   } catch (error: any) {
@@ -23,3 +23,5 @@ export const fetchByUsername = (email: string, password: string) => {
     console.error(error);
   }
 };
+
+export default {post, fetchByUsername};
