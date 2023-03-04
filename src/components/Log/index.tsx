@@ -1,10 +1,14 @@
 import {QuestionAnswer} from 'components/QuestionAnswer';
 import {QuestionAnswerArray} from 'components/QuestionAnswerArray';
 import {LogProps} from 'libs/utils/types/component-props';
-import React from 'react';
-import {Text, View} from 'react-native';
+import React, { useState } from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import {useTheme} from '@react-navigation/native';
+import {Colors} from 'libs/utils/types/themes';
+import { Btn } from 'components/Button';
 
 export const Log = ({log, date}: LogProps) => {
+  const [expanded, setExpanded] = useState(false)
   const logKeys = Object.keys(log);
   const categories = [
     'antecedents',
@@ -17,10 +21,12 @@ export const Log = ({log, date}: LogProps) => {
     'solutions',
     'unhealthyThoughts',
   ];
+  const {colors} = useTheme();
+  const styles = makeStyles(colors);
   return (
     <View>
-      <Text>{date}</Text>
-      {logKeys.map(logKey => {
+      <Btn title={date} onPress={() => setExpanded(!expanded)} />
+      { expanded && logKeys && logKeys.map(logKey => {
         return [
           ...categories.map(category => {
             return log[logKey][category]['1'] ? (
@@ -43,3 +49,10 @@ export const Log = ({log, date}: LogProps) => {
     </View>
   );
 };
+
+const makeStyles = (colors: Colors) =>
+  StyleSheet.create({
+    date: {
+      backgroundColor: colors.notification,
+    },
+  });

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Provider} from 'react-redux';
 import {Navigation} from './src/components/Navigation';
 import {store} from './src/libs/store/store';

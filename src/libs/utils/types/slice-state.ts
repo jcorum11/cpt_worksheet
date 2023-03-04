@@ -2,6 +2,7 @@ import {QuestionAnswer} from './answers';
 
 // Define a type for the slice state
 export type MediumLogState = {
+  [key: string]: QuestionAnswer | QuestionAnswer[]
   antecedents: QuestionAnswer;
   behaviorsOrThoughts: QuestionAnswer[];
   consequences: QuestionAnswer[];
@@ -10,7 +11,7 @@ export type MediumLogState = {
   reflections: QuestionAnswer[];
   situation: QuestionAnswer[];
   solutions: QuestionAnswer;
-  unhealthyThoughts: {question: string; answer: string};
+  unhealthyThoughts: QuestionAnswer;
 };
 
 export type Logs = {
